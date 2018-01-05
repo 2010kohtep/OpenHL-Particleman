@@ -21,10 +21,13 @@
 #include "pman_triangleffect.h"
 #include "interface.h"
 #include "particleman.h"
+#include "APIProxy.h"
+
+cl_enginefunc_t gEngfuncs;
 
 int g_iRenderMode;
 
-void IParticleMan_Active::SetUp(struct cl_enginefunc_t* pEnginefuncs)
+void IParticleMan_Active::SetUp(cl_enginefunc_t* pEnginefuncs)
 {
 
 }
@@ -158,5 +161,5 @@ void main()
 	g_pForceList.pCurrent = 0;
 	g_pForceList.pLast = 0;
 
-	InterfaceReg::InterfaceReg(CreateParticleMan, "create_particleman");
+	InterfaceReg::InterfaceReg(CreateParticleMan, PARTICLEMAN_INTERFACE);
 }

@@ -22,6 +22,7 @@
 #include "pman_math.h"
 #include "pman_triangleffect.h"
 #include "vector.h"
+#include "APIProxy.h"
 
 struct ForceMember
 {
@@ -48,7 +49,7 @@ class IParticleMan_Active : public IParticleMan
 protected:
 	virtual ~IParticleMan_Active() {};
 public:
-	virtual void SetUp(struct cl_enginefunc_t* pEnginefuncs);
+	virtual void SetUp(cl_enginefunc_t* pEnginefuncs);
 	virtual void Update();
 	virtual void SetVariables(float flGravity, Vector vViewAngles);
 	virtual void ResetParticles();
@@ -73,3 +74,5 @@ public:
 	virtual bool CoreCheckVisibility(CCoreTriangleEffect *pParticle);
 	virtual void SetRender(int iRender);
 };
+
+extern cl_enginefunc_t gEngfuncs;

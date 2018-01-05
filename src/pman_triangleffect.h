@@ -16,12 +16,7 @@
 * Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
 */
 
-#ifndef TRIANGLEEFFECT_H__
-#define TRIANGLEEFFECT_H__
-
-#ifdef _WIN32
 #pragma once
-#endif
 
 #define TRI_COLLIDEWORLD	0x00000020
 #define TRI_COLLIDEALL		0x00001000 // will collide with world and slideboxes
@@ -41,12 +36,12 @@
 #define LIGHT_INTENSITY ( 1 << 6 )
 
 #define RENDER_FACEPLAYER ( 1 << 7 ) // m_vAngles == Player view angles
-#define RENDER_FACEPLAYER_ROTATEZ ( 1 << 8 ) //Just like above but m_vAngles.z is untouched so the sprite can rotate.
+#define RENDER_FACEPLAYER_ROTATEZ ( 1 << 8 ) // Just like above but m_vAngles.z is untouched so the sprite can rotate.
 
 
 #include "pman_particlemem.h" 
 
-//pure virtual baseclass
+// pure virtual baseclass
 class CCoreTriangleEffect
 {
 private:
@@ -55,23 +50,20 @@ private:
 	bool   m_bInPVS;
 
 	int    m_iCollisionFlags;
-	float  m_flPlayerDistance; //Used for sorting the particles, DO NOT TOUCH.
+	float  m_flPlayerDistance; // Used for sorting the particles, DO NOT TOUCH.
 
 public:
 
-	void * operator new(size_t size)
+	// this asks for a new block of memory from the MiniMen class
+	void* operator new(size_t size)
 	{
 		// Requested size should match size of class.
-		if (size != sizeof(CCoreTriangleEffect))
-#ifdef _WIN32
+		if (size != sizeof CCoreTriangleEffect)
 			throw "Error in requested size of new particle class instance.";
-#else
-			return NULL;
-#endif
 
-		return((CCoreTriangleEffect *)CMiniMem::Instance()->newBlock());
+		return (CCoreTriangleEffect *)CMiniMem::Instance()->newBlock();
 
-	}//this asks for a new block of memory from the MiniMen class
+	}
 
 	virtual void Think(float time) = 0;
 	virtual bool CheckVisibility(void) = 0;
@@ -213,15 +205,10 @@ protected:
 		//  from being successfully allocated.
 		if (size > (unsigned long)CMiniMem::Instance()->MaxBlockSize())
 		{
-#ifdef _WIN32
 			throw "New particle class is larger than memory pool max size, update lMaxParticleClassSize() function.";
-#endif
-			return(false);
+			return false;
 		}
 
-		return(true);
+		return true;
 	}
 };
-
-
-#endif//TRIANGLEEFFECT_H__

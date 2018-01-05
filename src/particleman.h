@@ -20,6 +20,7 @@
 
 #include "interface.h"
 #include "pman_triangleffect.h"
+#include "APIProxy.h"
 
 #define PARTICLEMAN_INTERFACE "create_particleman"
 #define PARTICLEMAN_DLLNAME "cl_dlls/particleman.dll"
@@ -30,9 +31,8 @@ class IParticleMan : public IBaseInterface
 {
 protected:
 	virtual			~IParticleMan() {}
-
 public:
-	virtual void SetUp(struct cl_enginefunc_t *pEnginefuncs) = 0;
+	virtual void SetUp(cl_enginefunc_t *pEnginefuncs) = 0;
 	virtual void Update(void) = 0;
 	virtual void SetVariables(float flGravity, Vector vViewAngles) = 0;
 	virtual void ResetParticles(void) = 0;
@@ -67,6 +67,7 @@ public:
 };
 
 extern IParticleMan *g_pParticleMan;
+extern float g_flOldTime;
 
 class CBaseParticle : public CCoreTriangleEffect
 {
@@ -93,12 +94,8 @@ public:
 
 	void * operator new(size_t size) // this asks for a new block of memory from the MiniMem class
 	{
-		return(g_pParticleMan->RequestNewMemBlock(size));
+		return g_pParticleMan->RequestNewMemBlock(size);
 	}
-#ifdef POSIX
-	void * operator new(size_t size, const std::nothrow_t&) throw() //this asks for a new block of memory from the MiniMem class
-	{
-		return(g_pParticleMan->RequestNewMemBlock(size));
-	}
-#endif
 };
+
+extern bool IsGamePaused();

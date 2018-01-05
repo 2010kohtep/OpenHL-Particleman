@@ -45,6 +45,9 @@ public:
 		delete[] m_pData;
 	}
 
+	/**
+	 * Returns current m_pData value.
+	 */
 	inline char *Memory(void) { return m_pData; }
 
 	MemoryBlock * next;
@@ -76,16 +79,18 @@ public:
 		temp->prev = m_pHead;
 	}
 
-
+	/**
+	 * Returns current m_pHead value.
+	 */
 	MemoryBlock * Front(void)
 	{
-		return(m_pHead);
+		return m_pHead;
 	}
 
 	MemoryBlock * Pop(void)
 	{
 		if (!m_pHead)
-			return(NULL);
+			return NULL;
 
 		MemoryBlock * temp = m_pHead;
 
@@ -156,8 +161,12 @@ private:
 	int m_iTotalParticles;
 	int m_iParticlesDrawn;
 
+	MemList m_ActiveMem;
+	MemoryBlock* m_FreeMem;
+
 protected:
 	CMiniMem(long lMemoryPoolSize, long lMaxBlockSize);
+	CMiniMem(long lMaxBlockSize);
 	virtual ~CMiniMem();
 
 	char *AllocateFreeBlock(void);
