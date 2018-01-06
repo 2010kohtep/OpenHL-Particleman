@@ -82,9 +82,14 @@ public:
 	/**
 	 * Returns current m_pHead value.
 	 */
-	MemoryBlock * Front(void)
+	MemoryBlock* Front(void)
 	{
 		return m_pHead;
+	}
+
+	void SetFront(MemoryBlock* p)
+	{
+		m_pHead = p;
 	}
 
 	MemoryBlock * Pop(void)

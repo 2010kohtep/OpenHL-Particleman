@@ -73,9 +73,32 @@ CMiniMem::~CMiniMem()
 
 }
 
+// done, unchecked
 char* CMiniMem::AllocateFreeBlock()
 {
-	return nullptr;
+	auto pFM = m_FreeMem;
+	char* temp = nullptr;
+
+	if (!m_FreeMem)
+		return temp;
+
+	m_FreeMem = m_FreeMem->next;
+	if (m_FreeMem)
+		m_FreeMem->prev = 0;
+
+	auto pHead = m_ActiveMem.Front();
+	pFM->next = 0;
+	pFM->prev = 0;
+	m_ActiveMem.SetFront(pFM);
+
+	if (pHead)
+	{
+		pFM->next = pHead;
+		pHead->prev = pFM;
+	}
+
+	temp = pFM->Memory();
+	return temp;
 }
 
 // done, unchecked
@@ -109,11 +132,43 @@ char* CMiniMem::newBlock(void)
 	return pRes;
 }
 
+// done, unchecked
 void CMiniMem::deleteBlock(MemoryBlock *p)
 {
 	if (p == m_ActiveMem.Front())
 	{
-		
+		m_ActiveMem.SetFront(p->next);
+		if (m_ActiveMem.Front())
+			m_ActiveMem.Front()->prev = nullptr;
+	}
+	else
+	{
+		auto pPrev = p->prev;
+		auto pNext = p->next;
+
+		if (pPrev)
+			pPrev->next = pNext;
+
+		if (pNext)
+			pNext->prev = pPrev;
+	}
+
+	auto pFM = m_FreeMem;
+
+	p->next = 0;
+	p->prev = 0;
+	m_FreeMem = p;
+
+	if (pFM)
+	{
+		p->next = pFM;
+		p->prev = 0;
+		pFM->prev = p;
+	}
+	else
+	{
+		p->next = 0;
+		p->prev = 0;
 	}
 }
 
