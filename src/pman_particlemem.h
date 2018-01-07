@@ -199,6 +199,8 @@ public:
 
 	bool CheckSize(int iSize);
 
+	static VectorOfMemoryBlocks GetVecMemoryPool(void) { return m_vecMemoryPool; }
+
 	int GetTotalParticles(void) { return m_iTotalParticles; }
 	int GetDrawnParticles(void) { return m_iParticlesDrawn; }
 	void IncreaseParticlesDrawn(void) { m_iParticlesDrawn++; }

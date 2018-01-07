@@ -264,7 +264,50 @@ void CMiniMem::ProcessAll(void)
 
 void CMiniMem::Reset(void)
 {
+	auto pHead = m_ActiveMem.Front();
 
+	if (pHead)
+	{
+		auto pHeadNext = pHead->next;
+		while (pHeadNext)
+		{
+			pHeadNext->prev = nullptr;
+			pHead->next = nullptr;
+			pHead->prev = nullptr;
+			pHead = pHeadNext;
+
+			pHeadNext = pHeadNext->next;
+		}
+
+		pHead->next = nullptr;
+		pHead->prev = nullptr;
+		pHead = nullptr;
+	}
+
+	auto pFM = m_FreeMem;
+	if (pFM)
+	{
+		auto pFMNext = m_FreeMem->next;
+
+		while (pFMNext)
+		{
+			pFMNext->prev = nullptr;
+			pFM->next = nullptr;
+			pFM->prev = nullptr;
+			pFM = pFMNext;
+
+			pFMNext = pFMNext->next;
+		}
+
+		pFM->next = nullptr;
+		pFM->prev = nullptr;
+		m_FreeMem = nullptr;
+	}
+
+	// for (auto &&mem : CMiniMem::GetVecMemoryPool())
+	{
+		// TODO: finish vector here
+	}
 }
 
 int CMiniMem::ApplyForce(Vector vOrigin, Vector vDirection, float flRadius, float flStrength)
@@ -309,5 +352,5 @@ bool CMiniMem::CheckSize(int iSize)
 void CMiniMem::Shutdown(void)
 {
 	if (_instance)
-		_instance->~CMiniMem();
+		delete _instance;
 }
