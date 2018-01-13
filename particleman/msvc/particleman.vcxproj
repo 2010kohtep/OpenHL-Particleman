@@ -1,0 +1,130 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|Win32">
+      <Configuration>Debug</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|Win32">
+      <Configuration>Release</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <VCProjectVersion>15.0</VCProjectVersion>
+    <ProjectGuid>{070F9F63-4264-42C7-908C-725D1DAA6FF4}</ProjectGuid>
+    <RootNamespace>particleman2</RootNamespace>
+    <WindowsTargetPlatformVersion>10.0.16299.0</WindowsTargetPlatformVersion>
+    <ProjectName>particleman</ProjectName>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <PlatformToolset>v141</PlatformToolset>
+    <CharacterSet>MultiByte</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <PlatformToolset>v141</PlatformToolset>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <CharacterSet>MultiByte</CharacterSet>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Label="Shared">
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <TargetExt>.dll</TargetExt>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <TargetExt>.dll</TargetExt>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <Optimization>Disabled</Optimization>
+      <SDLCheck>true</SDLCheck>
+      <ConformanceMode>true</ConformanceMode>
+      <PreprocessorDefinitions>_WINDLL;_CRT_SECURE_NO_WARNINGS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>$(ProjectDir)..\src\common;$(ProjectDir)..\src\engine;$(ProjectDir)..\src\particleman;$(ProjectDir)..\src\particleman\particlefx_header;$(ProjectDir)..\src\particleman\particlefx_source;$(ProjectDir)..\src\public;$(ProjectDir)..\src\dlls;$(ProjectDir)..\src\pm_shared;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+    </ClCompile>
+    <Link>
+      <SubSystem>Windows</SubSystem>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <Optimization>MaxSpeed</Optimization>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <SDLCheck>true</SDLCheck>
+      <ConformanceMode>true</ConformanceMode>
+      <PreprocessorDefinitions>_WINDLL;_CRT_SECURE_NO_WARNINGS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>$(ProjectDir)..\src\common;$(ProjectDir)..\src\engine;$(ProjectDir)..\src\particleman;$(ProjectDir)..\src\particleman\particlefx_header;$(ProjectDir)..\src\particleman\particlefx_source;$(ProjectDir)..\src\public;$(ProjectDir)..\src\dlls;$(ProjectDir)..\src\pm_shared;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ClCompile>
+    <Link>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <ClInclude Include="..\src\common\cl_entity.h" />
+    <ClInclude Include="..\src\common\const.h" />
+    <ClInclude Include="..\src\common\in_buttons.h" />
+    <ClInclude Include="..\src\common\mathlib.h" />
+    <ClInclude Include="..\src\common\netadr.h" />
+    <ClInclude Include="..\src\common\pmtrace.h" />
+    <ClInclude Include="..\src\common\quakedef.h" />
+    <ClInclude Include="..\src\common\Sequence.h" />
+    <ClInclude Include="..\src\common\vmodes.h" />
+    <ClInclude Include="..\src\dlls\vector.h" />
+    <ClInclude Include="..\src\engine\APIProxy.h" />
+    <ClInclude Include="..\src\engine\cdll_int.h" />
+    <ClInclude Include="..\src\engine\edict.h" />
+    <ClInclude Include="..\src\engine\event_api.h" />
+    <ClInclude Include="..\src\engine\event_args.h" />
+    <ClInclude Include="..\src\engine\event_flags.h" />
+    <ClInclude Include="..\src\engine\osconfig.h" />
+    <ClInclude Include="..\src\engine\progdefs.h" />
+    <ClInclude Include="..\src\engine\progs.h" />
+    <ClInclude Include="..\src\particleman\particlefx_header\cbase.h" />
+    <ClInclude Include="..\src\particleman\particlefx_header\pman_force.h" />
+    <ClInclude Include="..\src\particleman\particlefx_header\pman_frustum.h" />
+    <ClInclude Include="..\src\particleman\particlefx_header\pman_main.h" />
+    <ClInclude Include="..\src\particleman\particlefx_header\util.h" />
+    <ClInclude Include="..\src\particleman\particlefx_header\util_vector.h" />
+    <ClInclude Include="..\src\public\archtypes.h" />
+    <ClInclude Include="..\src\public\basetypes.h" />
+    <ClInclude Include="..\src\public\interface.h" />
+    <ClInclude Include="..\src\public\maintypes.h" />
+    <ClInclude Include="..\src\public\particleman.h" />
+    <ClInclude Include="..\src\public\pman_particlemem.h" />
+    <ClInclude Include="..\src\public\pman_triangleffect.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="..\src\engine\cdll_int.cpp" />
+    <ClCompile Include="..\src\engine\mathlib.cpp" />
+    <ClCompile Include="..\src\particleman\particlefx_source\pman_force.cpp" />
+    <ClCompile Include="..\src\particleman\particlefx_source\pman_frustum.cpp" />
+    <ClCompile Include="..\src\particleman\particlefx_source\pman_main.cpp" />
+    <ClCompile Include="..\src\particleman\particlefx_source\pman_math.cpp" />
+    <ClCompile Include="..\src\particleman\particlefx_source\pman_particlemem.cpp" />
+    <ClCompile Include="..\src\particleman\particlefx_source\pman_triangleeffect.cpp" />
+    <ClCompile Include="..\src\public\interface.cpp" />
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>

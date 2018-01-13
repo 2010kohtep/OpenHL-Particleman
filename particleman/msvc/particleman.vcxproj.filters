@@ -1,0 +1,153 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="particleman">
+      <UniqueIdentifier>{0b7f1700-e5ac-4db0-802f-babfabb4db3e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="public">
+      <UniqueIdentifier>{c8794daf-653a-4591-92d3-8dafcee8eeef}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="common">
+      <UniqueIdentifier>{ac99f599-4c59-496f-85ec-b091fbeedd1e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="particleman\particlefx_header">
+      <UniqueIdentifier>{ba1eecf4-79c1-47ab-9ea4-ca56951d7c45}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="particleman\particlefx_source">
+      <UniqueIdentifier>{00d7ed32-b89d-4bdb-b22b-ee3e760e1d57}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="engine">
+      <UniqueIdentifier>{37a8c48f-e2c7-4df1-a3b9-b6b3be8a7b89}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="dlls">
+      <UniqueIdentifier>{d05b8680-3313-4690-a40e-f491dcd2943b}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\src\particleman\particlefx_header\util.h">
+      <Filter>particleman\particlefx_header</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\particleman\particlefx_header\util_vector.h">
+      <Filter>particleman\particlefx_header</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\particleman\particlefx_header\cbase.h">
+      <Filter>particleman\particlefx_header</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\particleman\particlefx_header\pman_force.h">
+      <Filter>particleman\particlefx_header</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\particleman\particlefx_header\pman_main.h">
+      <Filter>particleman\particlefx_header</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\public\particleman.h">
+      <Filter>public</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\public\pman_particlemem.h">
+      <Filter>public</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\public\interface.h">
+      <Filter>public</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\common\pmtrace.h">
+      <Filter>common</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\engine\APIProxy.h">
+      <Filter>engine</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\common\netadr.h">
+      <Filter>common</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\common\mathlib.h">
+      <Filter>common</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\public\basetypes.h">
+      <Filter>public</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\common\Sequence.h">
+      <Filter>common</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\common\vmodes.h">
+      <Filter>common</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\engine\cdll_int.h">
+      <Filter>engine</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\common\quakedef.h">
+      <Filter>common</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\public\archtypes.h">
+      <Filter>public</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\common\const.h">
+      <Filter>common</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\common\in_buttons.h">
+      <Filter>common</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\particleman\particlefx_header\pman_frustum.h">
+      <Filter>particleman\particlefx_header</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\dlls\vector.h">
+      <Filter>dlls</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\public\pman_triangleffect.h">
+      <Filter>public</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\common\cl_entity.h">
+      <Filter>common</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\engine\event_api.h">
+      <Filter>engine</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\engine\event_args.h">
+      <Filter>engine</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\engine\event_flags.h">
+      <Filter>engine</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\engine\osconfig.h">
+      <Filter>engine</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\engine\progdefs.h">
+      <Filter>engine</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\engine\progs.h">
+      <Filter>engine</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\engine\edict.h">
+      <Filter>engine</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\public\maintypes.h">
+      <Filter>public</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="..\src\particleman\particlefx_source\pman_frustum.cpp">
+      <Filter>particleman\particlefx_source</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\particleman\particlefx_source\pman_main.cpp">
+      <Filter>particleman\particlefx_source</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\particleman\particlefx_source\pman_math.cpp">
+      <Filter>particleman\particlefx_source</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\particleman\particlefx_source\pman_particlemem.cpp">
+      <Filter>particleman\particlefx_source</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\particleman\particlefx_source\pman_triangleeffect.cpp">
+      <Filter>particleman\particlefx_source</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\public\interface.cpp">
+      <Filter>public</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\particleman\particlefx_source\pman_force.cpp">
+      <Filter>particleman\particlefx_source</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\engine\cdll_int.cpp">
+      <Filter>engine</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\engine\mathlib.cpp">
+      <Filter>engine</Filter>
+    </ClCompile>
+  </ItemGroup>
+</Project>
